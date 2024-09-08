@@ -18,14 +18,18 @@ public class Opettaja {
     @Column(unique = true, nullable = false)
     private String sahkoposti;
 
+    @Column(nullable = false)
+    private String salasana;
+
     // Tyhjä konstruktori
     public Opettaja() {}
 
     // Konstruktori kaikilla kentillä
-    public Opettaja(String etunimi, String sukunimi, String sahkoposti) {
+    public Opettaja(String etunimi, String sukunimi, String sahkoposti, String salasana) {
         this.etunimi = etunimi;
         this.sukunimi = sukunimi;
         this.sahkoposti = sahkoposti;
+        this.salasana = salasana;
     }
 
     // Getterit ja setterit
@@ -61,7 +65,14 @@ public class Opettaja {
         this.sahkoposti = sahkoposti;
     }
 
-    // toString-metodi
+    public String getSalasana() {
+        return salasana;
+    }
+
+    public void setSalasana(String salasana) {
+        this.salasana = salasana;
+    }
+
     @Override
     public String toString() {
         return "Opettaja{" +
