@@ -1,5 +1,6 @@
 package org.group5.server.model;
 
+
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -9,6 +10,7 @@ public class Oppitunti {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long oppitunti_id;
+
 
     @ManyToOne
     @JoinColumn(name = "kurssi_id")
@@ -21,13 +23,8 @@ public class Oppitunti {
     private Date loppuaika;
 
     // Getterit ja setterit
-
     public Long getOppitunti_id() {
         return oppitunti_id;
-    }
-
-    public void setOppitunti_id(Long oppitunti_id) {
-        this.oppitunti_id = oppitunti_id;
     }
 
     public Kurssi getKurssi() {

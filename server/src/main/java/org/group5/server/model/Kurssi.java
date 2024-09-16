@@ -2,7 +2,6 @@ package org.group5.server.model;
 
 import jakarta.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 public class Kurssi {
@@ -28,9 +27,6 @@ public class Kurssi {
     @ManyToOne
     @JoinColumn(name = "opettaja_id", nullable = false)
     private Opettaja opettaja;
-
-    @OneToMany(mappedBy = "kurssi", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Oppitunti> oppitunnit;
 
     // Constructors
     public Kurssi() {}
@@ -92,13 +88,6 @@ public class Kurssi {
         this.opettaja = opettaja;
     }
 
-    public List<Oppitunti> getOppitunnit() {
-        return oppitunnit;
-    }
-
-    public void setOppitunnit(List<Oppitunti> oppitunnit) {
-        this.oppitunnit = oppitunnit;
-    }
 
     // toString-metodi
     @Override

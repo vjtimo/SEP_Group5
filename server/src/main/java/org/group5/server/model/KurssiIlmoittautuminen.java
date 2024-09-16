@@ -1,5 +1,6 @@
 package org.group5.server.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.util.Date;
 
@@ -12,6 +13,7 @@ public class KurssiIlmoittautuminen {
 
     @ManyToOne
     @JoinColumn(name = "opiskelija_id", nullable = false)
+    @JsonIgnoreProperties({"opintosuoritukset", "huoltaja"})
     private Opiskelija opiskelija;
 
     @ManyToOne
@@ -20,6 +22,7 @@ public class KurssiIlmoittautuminen {
 
     @Temporal(TemporalType.DATE)
     @Column(name = "ilmoittautuminen_pvm", nullable = false)
+    @JsonIgnoreProperties({"oppitunnit", "opettaja"})
     private Date ilmoittautuminen_pvm;
 
     // Tyhjä konstruktori
